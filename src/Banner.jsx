@@ -20,9 +20,21 @@ function Banner() {
   console.log(movie);
 
   return (
-    <header className="banner">
+    <header
+      className="banner"
+      style={{
+        backgroundSize: 'cover',
+        backgroundImage: `url('http://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
+        backgroundPosition: 'center center ',
+      }}
+    >
       <div className="banner__contetns">
-        <h1></h1>
+        <h1>{movie?.title || movie?.name || movie?.original_name}</h1>
+        <div className="banner__buttons">
+          <button className="banner__button">Play</button>
+          <button className="banner__button">My list</button>
+        </div>
+        <h1 className="banner__descriptions">{movie?.overview}</h1>
       </div>
     </header>
   );
